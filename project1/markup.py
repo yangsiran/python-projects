@@ -36,8 +36,13 @@ class BasicTextParser(Parser):
     """
     def __init__(self, handler):
         Parser.__init__(self, handler)
-        self.addRule(ListRule())
+        self.addRule(TableOutRule())
+        self.addRule(ListOutRule())
+        self.addRule(TableInRule())
+        self.addRule(ListInRule())
+        self.addRule(TableRowRule())
         self.addRule(ListItemRule())
+
         self.addRule(TitleRule())
         self.addRule(HeadingRule())
         self.addRule(ParagraphRule())

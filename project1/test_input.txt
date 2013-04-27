@@ -26,13 +26,17 @@ From this page you may visit several of our interesting web pages:
 
  - Why should i eat it? (http://wwspam.fu/whyeatit)
 
-How to get in touch with us:
+Country
+  America
+  Canada
+  China
+  Janpan
 
- 1) This is a test.
-
- 2) Let's hope there's not a bug.
-
- 3) If it doesn't work I'm in serious trouble.
+People
+  Washington
+  Foo
+  Zedong Mao
+  Bar
 
 You can get in touch with us in many ways: By phone (555-1234), by
 email (wws.pam@wwspam.fu) or by visiting our costumer feedback page
