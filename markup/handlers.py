@@ -83,6 +83,9 @@ class HTMLRenderer(Handler):
 
     def sub_emphasis(self, match):
         return '<em>%s</em>' % match.group(1)
+    def sub_uppercase(self, match):
+        return match.group(0).replace(match.group(1),
+                                      '<strong>%s</strong>' % match.group(1))
     def sub_url(self, match):
         return '<a href="%s">%s</a>' % (match.group(1), match.group(1))
     def sub_mail(self, match):
