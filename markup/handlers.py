@@ -8,13 +8,17 @@ class Handler:
     substitution. When called with a name such as 'emphasis', it will
     return a proper substitution function.
     """
+
     def callback(self, prefix, name, *args):
         method = getattr(self, prefix+name, None)
         if callable(method): return method(*args)
+
     def start(self, name):
         self.callback('start_', name)
+
     def end(self, name):
         self.callback('end_', name)
+
     def sub(self, name):
         def substitution(match):
             result = self.callback('sub_', name,match)
@@ -83,12 +87,15 @@ class HTMLRenderer(Handler):
 
     def sub_emphasis(self, match):
         return '<em>%s</em>' % match.group(1)
-    def sub_uppercase(self, match):
+
+    def sub_strong(self, match):
         return match.group(0).replace(match.group(1),
                                       '<strong>%s</strong>' % match.group(1))
     def sub_url(self, match):
         return '<a href="%s">%s</a>' % (match.group(1), match.group(1))
+
     def sub_mail(self, match):
         return '<a href="mailto:%s">%s</a>' % (match.group(1), match.group(1))
+
     def feed(self, data):
         print data

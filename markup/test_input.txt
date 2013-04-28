@@ -18,7 +18,21 @@ and focused 100% on canned goods. Today, they rank as the world's
 
 Destinations
 
-From this page you may visit several of our interesting web pages:
+You can get in touch with us in many ways: By phone (555-1234), by
+email (wws.pam@wwspam.fu) or by visiting our costumer feedback page
+(http://wwspa.fu/feedback).
+
+People
+  Washington
+  Foo
+  Zedong Mao
+  Bar
+
+Country
+  America
+  Canada
+  China
+  Janpan
 
  - What is SPAM? (http://wwspam.fu/whatisspam)
 
@@ -37,7 +51,3 @@ People
   Foo
   Zedong Mao
   Bar
-
-You can get in touch with us in many ways: By phone (555-1234), by
-email (wws.pam@wwspam.fu) or by visiting our costumer feedback page
-(http://wwspa.fu/feedback).
