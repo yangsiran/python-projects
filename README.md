@@ -1,10 +1,12 @@
 ## Project 1: Instant Markup
 
-Markup the text from strand input into html format.  It Support blocks title,
-heading, paragraph, list and table. And inline elements like emphasis,
-strong(all uppercase word), url, email can be used too.
+Markup the text from strand input into html format.
+It Support blocks title, heading, paragraph, list and table.
+And inline elements like emphasis, strong(all uppercase word), url,
+email can be used too.
 
-There are four kinds of components in this project:
+The second version of this project is a good example for mordularity and
+OO design. There are four kinds of components in it:
 
 * *A parser*: An object that reads the text and control the process of convert.
 * *Rules*: Each rule is mapped with one kind of block, and used to detect the
