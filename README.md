@@ -18,4 +18,6 @@ handler is for a individual kind of markup.
 
 ### Further Exploration
 
+* Write a handler for something other than markup, such as analyzes
+the document
 * Supporting for LATEX output.
