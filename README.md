@@ -21,3 +21,8 @@ handler is for a individual kind of markup.
 * Write a handler for something other than markup, such as analyzes
 the document
 * Supporting for LATEX output.
+
+## Project 2: Paint A Pertty Picture
+
+Using a graphics-generating package called ReportLab. Many other packages in
+this kind can be used to slove such problems.
