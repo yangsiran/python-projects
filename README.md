@@ -39,4 +39,4 @@ variables, or dispatching the events to custiom event handles.
 
 There is a bug: support for non-ascii characters.
 
-There are also some further explorations of this project, see them on the book.
+## Project 4: In the News
