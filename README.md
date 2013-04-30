@@ -31,3 +31,12 @@ Many other packages in this kind can be used to slove such problems.
 ## Project 3: XML For All Ocaasions
 
 Using a single XML file to generate a complete web site.
+
+In the second implementation, a mix-in class was used to handle some
+administrative details such as gathering character data, managing Boolean state
+variables, or dispatching the events to custiom event handles.
+(Only dispatching events thing was focused on in this project.)
+
+There is a bug: support for non-ascii characters.
+
+There are also some further explorations of this project, see them on the book.

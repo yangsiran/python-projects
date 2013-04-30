@@ -18,11 +18,11 @@
     </page>
     <page name="sleeping" title="Sleeping">
       <h1>Mr. Gumby's Sleeping Page</h1>
-      <p>...</p>
+      <p>我是睡货</p>
     </page>
     <page name="eating" title="Eating">
       <h1>Mr. Gumby's Eating Page</h1>
-      <p>...</p>
+      <p>我是吃货</p>
     </page>
   </directory>
 </website>

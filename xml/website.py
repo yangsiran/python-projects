@@ -75,4 +75,5 @@ class WebsiteConstructor(Dispatcher, ContentHandler):
     def writeFooter(self):
         self.out.write('\n  <body>\n</html>\n')
 
+
 parse('website.xml', WebsiteConstructor('public_html'))
