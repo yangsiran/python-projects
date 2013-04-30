@@ -24,5 +24,10 @@ the document
 
 ## Project 2: Paint A Pertty Picture
 
-Using a graphics-generating package called ReportLab. Many other packages in
-this kind can be used to slove such problems.
+This project made a graphic of sunspots data from the Internet by a
+graphics-generating package called ReportLab.
+Many other packages in this kind can be used to slove such problems.
+
+## Project 3: XML For All Ocaasions
+
+Using a single XML file to generate a complete web site.
