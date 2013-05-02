@@ -37,6 +37,6 @@ administrative details such as gathering character data, managing Boolean state
 variables, or dispatching the events to custiom event handles.
 (Only dispatching events thing was focused on in this project.)
 
-There is a bug: support for non-ascii characters.
+There is a problem: support for non-ascii characters.
 
 ## Project 4: In the News
