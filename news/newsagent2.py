@@ -130,8 +130,8 @@ class HTMLDestination:
     def receiveItems(self, items):
 
         out = open(self.filename, 'w')
-        print >> out, "<html>\n  <head>\n    <title>News in This Month</title>"
-        print >> out, "  </head>\n  <body>\n    <h1>News in This Month</h1>"
+        print >> out, '<html>\n  <head>\n    <title>News in This Month</title>'
+        print >> out, '  </head>\n  <body>\n    <h1>News in This Month</h1>'
 
         print >> out, '    <ul>'
         for id, item in enumerate(items):
