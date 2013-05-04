@@ -40,3 +40,8 @@ variables, or dispatching the events to custiom event handles.
 There is a problem: support for non-ascii characters.
 
 ## Project 4: In the News
+
+The second implementation add some classes to build the abstraction and
+flexibility. That is making a kind of *Source* class at font end, and a kind of
+*Destination* class at the back end, with the Agent class sitting in the
+middle.
