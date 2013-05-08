@@ -16,8 +16,9 @@ class CommandHandler:
     libary.
     """
 
-    def unknown(self, session, cmd):
+    def unknown(self, session, line):
         'Respond to an unknown command'
+        cmd = line.split(' ', 1)
         session.push('Unknown command: %s\r\n' % cmd)
 
     def handle(self, session, line):
@@ -26,16 +27,16 @@ class CommandHandler:
         # Split off the command:
         parts = line.split(' ', 1)
         cmd = parts[0]
-        try: line = parts[1].strip()
-        except IndexError: line = ''
+        try: arg = parts[1].strip()
+        except IndexError: arg = ''
         # Try to find a handler:
         meth = getattr(self, 'do_'+cmd, None)
         try:
             # Assume it's callable
-            meth(session, line)
+            meth(session, arg)
         except TypeError:
             # If it isn't, respond to the unknown command:
-            self.unknown(session, cmd)
+            self.unknown(session, line)
 
 
 class Room(CommandHandler):
@@ -62,8 +63,14 @@ class Room(CommandHandler):
         for session in self.sessions:
             session.push(line)
 
-    def do_logout(self, session, line):
-        'Respond to the logout command'
+    def do_who(self, session, line):
+        'Handles the who command, used to see who is logged in'
+        session.push('The following are logged in:\r\n')
+        for user in self.server.users:
+            session.push(user + '\r\n')
+
+    def do_quit(self, session, line):
+        'Respond to the quit command'
         raise EndSession
 
 
@@ -77,25 +84,52 @@ class LoginRoom(Room):
         # When a user enters, greet him/her:
         self.broadcast('Welcome to %s\r\n' % self.server.name)
 
-    def unknown(self, session, cmd):
+    def unknown(self, session, line):
         # All unknown commands (anything except login or logou)
         # result in prodding:
-        session.push('Please log in\nUse "login <nick>"\r\n')
+        session.push('Use "look" to check for existing rooms\r\n')
+        session.push('Use "login <room> <user>" to login into a room\r\n')
+        session.push('Use "new <room>" to open a new room\r\n')
 
-    def do_login(self, session, line):
+    def do_look(self, session, line):
+        'Handles the look command, used to see what rooms are existing'
+        session.push('The following room(s) are in the server:\r\n')
+        for room in self.server.rooms:
+            session.push(room + '\r\n')
+
+    def do_new(self, session, line):
+        'Handles the new command, used to open a new room.'
         name = line.strip()
-        # Make sure the user has entered a name:
         if not name:
-            session.push('Please enter a name\r\n')
-        # Make sure that the user has entered a name:
-        elif name in self.server.users:
+            session.push('Please enter a room name\r\n')
+        elif name in self.server.rooms:
             session.push('The name "%s" is taken.\r\n' % name)
             session.push('Please try again.\r\n')
         else:
-            # The name is OK, so it is stored in the session, and
-            # the user is moved into the main room.
-            session.name = name
-            session.enter(self.server.main_room)
+            self.server.rooms[name] = ChatRoom(self.server)
+
+    def do_login(self, session, line):
+        'Handles the login command, used to login into a room.'
+        if not line.strip(): return
+        try:
+            room, user = line.split(' ', 1)
+        except ValueError:
+            session.push('Please enter a user name\r\n')
+        else:
+            user = user.strip()
+            if room not in self.server.rooms:
+                session.push('The room name "%s" doesn\'t exist.\r\n' % room)
+                session.push('Please [look] for a room.\r\n')
+                return
+            if not user:
+                session.push('Please enter a user name\r\n')
+                return
+            if user in self.server.users:
+                session.push('The user name "%s" is taken.\r\n' % user)
+                session.push('Please try again.\r\n')
+                return
+            session.name = user
+            session.enter(self.server.rooms[room])
 
 
 class ChatRoom(Room):
@@ -112,10 +146,11 @@ class ChatRoom(Room):
 
     def remove(self, session):
         Room.remove(self, session)
+        del self.server.users[session.name]
         # Notify everyone that a user has left:
         self.broadcast(session.name + ' has left the room.\r\n')
 
-    def do_say(self, session, line):
+    def unknown(self, session, line):
         self.broadcast(session.name+': '+line+'\r\n')
 
     def do_look(self, session, line):
@@ -124,23 +159,15 @@ class ChatRoom(Room):
         for other in self.sessions:
             session.push(other.name + '\r\n')
 
-    def do_who(self, session, line):
-        'Handles the who command, used to see who is logged in'
-        session.push('The following are logged in:\r\n')
-        for name in self.server.users:
-            session.push(name + '\r\n')
+    def do_logout(self, session, line):
+        'Handles the logout command, used to go back to LoginRoom'
+        session.enter(LoginRoom(self.server))
 
 
-class LogoutRoom(Room):
+class EndRoom(Room):
     """
-    A simple room for a single user. Its sole purpose is to remove
-    the user's name from server.
+    When a user quit, he come into this room but do nothing.
     """
-
-    def add(self, session):
-        # When a session (user) enter the LogoutRoom it is deleted
-        try: del self.server.users[session.name]
-        except KeyError: pass
 
 
 class ChatSession(async_chat):
@@ -179,7 +206,7 @@ class ChatSession(async_chat):
 
     def handle_close(self):
         async_chat.handle_close(self)
-        self.enter(LogoutRoom(self.server))
+        self.enter(EndRoom(self.server))
 
 
 class ChatServer(dispatcher):
@@ -194,7 +221,7 @@ class ChatServer(dispatcher):
         self.listen(5)
         self.name = name
         self.users = {}
-        self.main_room = ChatRoom(self)
+        self.rooms = {}
 
     def handle_accept(self):
         conn, addr = self.accept()
