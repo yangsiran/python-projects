@@ -42,8 +42,8 @@ variables, or dispatching the events to custiom event handles.
 ## Project 4: In the News
 
 The second implementation add some classes to build the abstraction and
-flexibility. That is making a kind of *Source* class at font end, and a kind of
-*Destination* class at the back end, with the *Agent* class sitting in the
+flexibility. That is making a kind of `Source` class at font end, and a kind of
+`Destination` class at the back end, with the `Agent` class sitting in the
 middle.
 
 **This project is waiting for more further extending.**
@@ -54,3 +54,8 @@ This project implement a chat application use the aysncore and asynchat module
 in the standard library. That allow more than one user connect to the server
 simultaneously. The second version even support the command line interpretion.
 This project show us the basic concept of network programming.
+
+## Project 6: Remote Editing with CGI
+
+The project remote-editing use the `cgi` to serve a web app which can editing
+file via web. It show the basic concept of writing web script using Python.
