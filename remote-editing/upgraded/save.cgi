@@ -27,12 +27,12 @@ if sha(password).hexdigest() != '8843d7f92416211de9ebb963ff4ce28125932878':
 db = connect(user='root', db='webapp',
              unix_socket='/opt/lampp/var/mysql/mysql.sock')
 cur = db.cursor()
-cur.execute("update files set lastest = 0 where name='%s'" % filename)
-cur.execute("insert into files (name, user, content) values ('%s', '%s', '%s')"
-                                                   % (filename, user, content))
+cur.execute('update files set lastest = 0 where name=%s', filename)
+cur.execute('insert into files (name, user, content) values (%s, %s, %s)',
+            (filename, user, content))
 db.commit()
 
-cur.execute("select date from files where name='%s' and lastest" % filename)
+cur.execute('select date from files where name=%s and lastest', filename)
 date = cur.fetchall()[0][0]
 if filename.lower().endswith('.md'):
     format = 'Markdown'

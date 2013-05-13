@@ -21,7 +21,7 @@ db = connect(user='root', db='webapp',
 cur = db.cursor()
 
 if not cur.execute('select user, content from files '
-                   "where name='%s' and date='%s'" % (filename, date)):
+                   'where name=%s and date=%s', (filename, date)):
     print 'File does not exist'
     sys.exit()
 

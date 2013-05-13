@@ -18,8 +18,8 @@ db = connect(user='root', db='webapp',
              unix_socket='/opt/lampp/var/mysql/mysql.sock')
 cur = db.cursor()
 
-if not cur.execute("select date, user from files where name='%s'"
-                   'order by date desc' % filename):
+if not cur.execute('select date, user from files where name=%s'
+                   'order by date desc', filename):
     print 'File does not exist.'
     sys.exit()
 
