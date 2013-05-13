@@ -25,6 +25,7 @@ if date:
         print 'File does not exist'
         sys.exit()
 
+format = 'Markdown' if filename.lower().endswith('.md') else 'Plain text'
 print '''
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -35,17 +36,15 @@ print '''
   </head>
   <body>
     <div>
-      Filename: <em>%s</em>
-''' % filename
+      Filename: <em>%s</em> Format: <em>%s</em><br />
+''' % (filename, format)
 
 if date:
     user, content = cur.fetchall()[0]
     db.close()
-    format = 'Markdown' if filename.lower().endswith('.md') else 'Plain text'
     print '''
-      Format: <em>%s</em><br />
       Last edit by <em>%s</em> At <em>%s</em>
-''' % (format, user, date)
+''' % (user, date)
 else:
     content = ''
 
