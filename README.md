@@ -59,3 +59,7 @@ This project show us the basic concept of network programming.
 
 The project remote-editing use the `cgi` to serve a web app which can editing
 file via web. It show the basic concept of writing web script using Python.
+
+The upgraded version used database instead of files to serve the data, and also
+included some new featrues like *version control*, *user*, *markdown style
+display*.
