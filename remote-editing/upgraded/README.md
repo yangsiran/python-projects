@@ -1,7 +1,7 @@
 setup
 -----
 
-The code is this project use MySQL in xampp and the root user with a database
+The code in this project use MySQL in xampp and the root user with a database
 called `webapp`, modify them if you have other chioce.
 
 In the database:
