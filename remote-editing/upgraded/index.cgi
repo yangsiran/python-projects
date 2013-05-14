@@ -40,7 +40,7 @@ for (filename, date) in cur.fetchall():
 print '''
     </table>
     <form action="edit.cgi" method="POST">
-      <b>New File:</b> <input type="text" name="filename" />
+      <strong>New File:</strong> <input type="text" name="filename" />
       <input type="submit" value="Create" />
     </form>
   </body>

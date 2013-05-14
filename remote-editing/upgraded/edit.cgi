@@ -52,8 +52,8 @@ print '''
     </div>
     <form action="save.cgi" method="POST">
       <textarea name="content" cols=100 rows=40>%s</textarea><br />
-      <b>User:</b> <input type="text" name="user" />
-      <b>Password:</b> <input type="password" name="password" />
+      <strong>User:</strong> <input type="text" name="user" />
+      <strong>Password:</strong> <input type="password" name="password" />
       <input type="hidden" name="filename" value="%s" />
       <input type="submit" value="Save" />
     </form>
