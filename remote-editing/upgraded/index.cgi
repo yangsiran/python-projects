@@ -46,5 +46,3 @@ print '''
   </body>
 </html>
 '''
-
-db.close()

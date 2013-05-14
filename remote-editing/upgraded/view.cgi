@@ -59,5 +59,3 @@ print '''
   </body>
 </html>
 ''' % (filename, format, user, date, content, filename, date)
-
-db.close()

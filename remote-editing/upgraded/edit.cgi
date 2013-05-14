@@ -41,7 +41,6 @@ print '''
 
 if date:
     user, content = cur.fetchall()[0]
-    db.close()
     print '''
       Last edit by <em>%s</em> At <em>%s</em>
 ''' % (user, date)
