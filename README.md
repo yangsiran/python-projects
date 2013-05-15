@@ -63,3 +63,8 @@ file via web. It show the basic concept of writing web script using Python.
 The upgraded version used database instead of files to serve the data, and also
 included some new featrues like *version control*, *user*, *markdown style
 display*.
+
+## Project 7: Your Own Bulletin Board
+
+This project is cgi-database application supporting post and reply to message,
+also supporting message threading.
