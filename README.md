@@ -77,4 +77,4 @@ Each node in the network plays as either a server or a client.
 
 There are some idea to do more improvement: **caching, threaded/asynchronous
 server, advanced queries, cleverer `hello`, REST, xmlrpclib.Binary,
-DocXMLRPCServer, multicall extension in libxmlrpc**.
+DocXMLRPCServer, multicall extension in xmlrpclib**.
