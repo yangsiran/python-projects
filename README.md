@@ -76,5 +76,5 @@ to call method on the other program on different machine (may be same machine).
 Each node in the network plays as either a server or a client.
 
 There are some idea to do more improvement: **caching, threaded/asynchronous
-server, advanced queries, cleverer `hello`, REST, xmlrpclib.Binary,
-DocXMLRPCServer, multicall extension in xmlrpclib**.
+server, advanced queries, cleverer `hello`, REST, `xmlrpclib.Binary`,
+`DocXMLRPCServer`, multicall extension in `xmlrpclib`**.
