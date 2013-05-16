@@ -68,3 +68,13 @@ display*.
 
 This project is cgi-database application supporting post and reply to message,
 also supporting message threading.
+
+## Project 8: File Sharing With XML-RPC
+
+This one implement a peer-to-peer file sharing application, which using XML-RPC
+to call method on the other program on different machine (may be same machine).
+Each node in the network plays as either a server or a client.
+
+There are some idea to do more improvement: **caching, threaded/asynchronous
+server, advanced queries, cleverer `hello`, REST, xmlrpclib.Binary,
+DocXMLRPCServer, multicall extension in libxmlrpc**.
