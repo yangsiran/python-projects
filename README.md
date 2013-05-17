@@ -28,7 +28,7 @@ This project made a graphic of sunspots data from the Internet by a
 graphics-generating package called ReportLab.
 Many other packages in this kind can be used to slove such problems.
 
-## Project 3: XML For All Ocaasions
+## Project 3: XML for All Ocaasions
 
 Using a single XML file to generate a complete web site.
 
@@ -69,7 +69,7 @@ display*.
 This project is cgi-database application supporting post and reply to message,
 also supporting message threading.
 
-## Project 8: File Sharing With XML-RPC
+## Project 8: File Sharing with XML-RPC
 
 This one implement a peer-to-peer file sharing application, which using XML-RPC
 to call method on the other program on different machine (may be same machine).
@@ -78,3 +78,10 @@ Each node in the network plays as either a server or a client.
 There are some idea to do more improvement: **caching, threaded/asynchronous
 server, advanced queries, cleverer `hello`, REST, `xmlrpclib.Binary`,
 `DocXMLRPCServer`, multicall extension in `xmlrpclib`**.
+
+## Project 9: File Sharing II - Now with GUI!!
+
+This one wrap the last one with a GUI client, and some more user-friendly
+features.
+
+Ideas to expand it: **status bar, "sharing friends", list of known Nodes**.
